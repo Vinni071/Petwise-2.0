@@ -159,7 +159,6 @@ function criarFicha(values) {
             Profissional: texto(values.profissional),
             Especialidade: texto(values.especialidade),
             "Última consulta": "Não informado",
-            "Vacinação": "Não informado",
             "Observações": texto(values.observacoes)
         }
     };

@@ -23,7 +23,6 @@ typedef struct {
 
 typedef struct {
     char ultima_consulta[160];
-    char vacinacao[160];
     char observacoes[160];
 } Atendimento;
 
@@ -131,7 +130,6 @@ static int gravar_ficha(const Cliente *cliente, const Animal *animal,
     escrever_campo_json(arquivo, "Peso", animal->peso, 1);
     fputs("  },\n  \"Atendimento\": {\n", arquivo);
     escrever_campo_json(arquivo, "Ultima consulta", atendimento->ultima_consulta, 0);
-    escrever_campo_json(arquivo, "Vacinacao", atendimento->vacinacao, 0);
     escrever_campo_json(arquivo, "Observacoes", atendimento->observacoes, 1);
     fputs("  }\n}\n", arquivo);
 
@@ -165,8 +163,6 @@ int main(void) {
     puts("\n-- Atendimento (opcional) --");
     ler_campo_opcional("Ultima consulta", atendimento.ultima_consulta,
                        sizeof(atendimento.ultima_consulta));
-    ler_campo_opcional("Vacinacao", atendimento.vacinacao,
-                       sizeof(atendimento.vacinacao));
     ler_campo_opcional("Observacoes", atendimento.observacoes,
                        sizeof(atendimento.observacoes));
 
